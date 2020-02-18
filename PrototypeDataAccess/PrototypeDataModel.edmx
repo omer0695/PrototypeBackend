@@ -1,0 +1,872 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="PrototypeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="films">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="created" Type="datetime" />
+          <Property Name="director" Type="nvarchar(max)" />
+          <Property Name="edited" Type="datetime" />
+          <Property Name="episode_id" Type="int" />
+          <Property Name="opening_crawl" Type="nvarchar(max)" />
+          <Property Name="producer" Type="nvarchar(max)" />
+          <Property Name="release_date" Type="datetime" />
+          <Property Name="title" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="films_characters">
+          <Key>
+            <PropertyRef Name="film_id" />
+            <PropertyRef Name="people_id" />
+          </Key>
+          <Property Name="film_id" Type="int" Nullable="false" />
+          <Property Name="people_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="films_planets">
+          <Key>
+            <PropertyRef Name="film_id" />
+            <PropertyRef Name="planet_id" />
+          </Key>
+          <Property Name="film_id" Type="int" Nullable="false" />
+          <Property Name="planet_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="films_species">
+          <Key>
+            <PropertyRef Name="film_id" />
+            <PropertyRef Name="species_id" />
+          </Key>
+          <Property Name="film_id" Type="int" Nullable="false" />
+          <Property Name="species_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="films_starships">
+          <Key>
+            <PropertyRef Name="film_id" />
+            <PropertyRef Name="starship_id" />
+          </Key>
+          <Property Name="film_id" Type="int" Nullable="false" />
+          <Property Name="starship_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="films_vehicles">
+          <Key>
+            <PropertyRef Name="film_id" />
+            <PropertyRef Name="vehicle_id" />
+          </Key>
+          <Property Name="film_id" Type="int" Nullable="false" />
+          <Property Name="vehicle_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="people">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="birth_year" Type="nvarchar(max)" />
+          <Property Name="created" Type="datetime" />
+          <Property Name="edited" Type="datetime" />
+          <Property Name="eye_color" Type="nvarchar(max)" />
+          <Property Name="gender" Type="nvarchar(max)" />
+          <Property Name="hair_color" Type="nvarchar(max)" />
+          <Property Name="height" Type="nvarchar(max)" />
+          <Property Name="homeworld" Type="int" />
+          <Property Name="mass" Type="nvarchar(max)" />
+          <Property Name="name" Type="nvarchar(max)" />
+          <Property Name="skin_color" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="planets">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="climate" Type="nvarchar(max)" />
+          <Property Name="created" Type="datetime" />
+          <Property Name="diameter" Type="nvarchar(max)" />
+          <Property Name="edited" Type="datetime" />
+          <Property Name="gravity" Type="nvarchar(max)" />
+          <Property Name="name" Type="nvarchar(max)" />
+          <Property Name="orbital_period" Type="nvarchar(max)" />
+          <Property Name="population" Type="nvarchar(max)" />
+          <Property Name="rotation_period" Type="nvarchar(max)" />
+          <Property Name="surface_water" Type="nvarchar(max)" />
+          <Property Name="terrain" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="species">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="average_height" Type="nvarchar(max)" />
+          <Property Name="average_lifespan" Type="nvarchar(max)" />
+          <Property Name="classification" Type="nvarchar(max)" />
+          <Property Name="created" Type="datetime" />
+          <Property Name="designation" Type="nvarchar(max)" />
+          <Property Name="edited" Type="datetime" />
+          <Property Name="eye_colors" Type="nvarchar(max)" />
+          <Property Name="hair_colors" Type="nvarchar(max)" />
+          <Property Name="homeworld" Type="int" />
+          <Property Name="language" Type="nvarchar(max)" />
+          <Property Name="name" Type="nvarchar(max)" />
+          <Property Name="skin_colors" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="species_people">
+          <Key>
+            <PropertyRef Name="species_id" />
+            <PropertyRef Name="people_id" />
+          </Key>
+          <Property Name="species_id" Type="int" Nullable="false" />
+          <Property Name="people_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="starships">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="MGLT" Type="nvarchar(max)" />
+          <Property Name="hyperdrive_rating" Type="nvarchar(max)" />
+          <Property Name="starship_class" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="starships_pilots">
+          <Key>
+            <PropertyRef Name="starship_id" />
+            <PropertyRef Name="people_id" />
+          </Key>
+          <Property Name="starship_id" Type="int" Nullable="false" />
+          <Property Name="people_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="transports">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="cargo_capacity" Type="nvarchar(max)" />
+          <Property Name="consumables" Type="nvarchar(max)" />
+          <Property Name="cost_in_credits" Type="nvarchar(max)" />
+          <Property Name="created" Type="datetime" />
+          <Property Name="crew" Type="nvarchar(max)" />
+          <Property Name="edited" Type="datetime" />
+          <Property Name="length" Type="nvarchar(max)" />
+          <Property Name="manufacturer" Type="nvarchar(max)" />
+          <Property Name="max_atmosphering_speed" Type="nvarchar(max)" />
+          <Property Name="model" Type="nvarchar(max)" />
+          <Property Name="name" Type="nvarchar(max)" />
+          <Property Name="passengers" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="vehicles">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="vehicle_class" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="vehicles_pilots">
+          <Key>
+            <PropertyRef Name="vehicle_id" />
+            <PropertyRef Name="people_id" />
+          </Key>
+          <Property Name="vehicle_id" Type="int" Nullable="false" />
+          <Property Name="people_id" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="s3t_characters_films_0">
+          <End Role="films" Type="Self.films" Multiplicity="1" />
+          <End Role="films_characters" Type="Self.films_characters" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="films">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="films_characters">
+              <PropertyRef Name="film_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="s3t_characters_films_1">
+          <End Role="people" Type="Self.people" Multiplicity="1" />
+          <End Role="films_characters" Type="Self.films_characters" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="people">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="films_characters">
+              <PropertyRef Name="people_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="s3t_films_planets_films_0">
+          <End Role="films" Type="Self.films" Multiplicity="1" />
+          <End Role="films_planets" Type="Self.films_planets" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="films">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="films_planets">
+              <PropertyRef Name="film_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="s3t_films_planets_films_1">
+          <End Role="planets" Type="Self.planets" Multiplicity="1" />
+          <End Role="films_planets" Type="Self.films_planets" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="planets">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="films_planets">
+              <PropertyRef Name="planet_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="s3t_films_species_films_0">
+          <End Role="films" Type="Self.films" Multiplicity="1" />
+          <End Role="films_species" Type="Self.films_species" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="films">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="films_species">
+              <PropertyRef Name="film_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="s3t_films_species_films_1">
+          <End Role="species" Type="Self.species" Multiplicity="1" />
+          <End Role="films_species" Type="Self.films_species" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="species">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="films_species">
+              <PropertyRef Name="species_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="s3t_films_starships_films_0">
+          <End Role="films" Type="Self.films" Multiplicity="1" />
+          <End Role="films_starships" Type="Self.films_starships" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="films">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="films_starships">
+              <PropertyRef Name="film_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="s3t_films_starships_films_1">
+          <End Role="starships" Type="Self.starships" Multiplicity="1" />
+          <End Role="films_starships" Type="Self.films_starships" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="starships">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="films_starships">
+              <PropertyRef Name="starship_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="s3t_films_vehicles_films_0">
+          <End Role="films" Type="Self.films" Multiplicity="1" />
+          <End Role="films_vehicles" Type="Self.films_vehicles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="films">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="films_vehicles">
+              <PropertyRef Name="film_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="s3t_films_vehicles_films_1">
+          <End Role="vehicles" Type="Self.vehicles" Multiplicity="1" />
+          <End Role="films_vehicles" Type="Self.films_vehicles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="vehicles">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="films_vehicles">
+              <PropertyRef Name="vehicle_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="s3t_species_people_species_0">
+          <End Role="species" Type="Self.species" Multiplicity="1" />
+          <End Role="species_people" Type="Self.species_people" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="species">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="species_people">
+              <PropertyRef Name="species_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="s3t_species_people_species_1">
+          <End Role="people" Type="Self.people" Multiplicity="1" />
+          <End Role="species_people" Type="Self.species_people" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="people">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="species_people">
+              <PropertyRef Name="people_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="s3t_starships_pilots_starships_0">
+          <End Role="starships" Type="Self.starships" Multiplicity="1" />
+          <End Role="starships_pilots" Type="Self.starships_pilots" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="starships">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="starships_pilots">
+              <PropertyRef Name="starship_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="s3t_starships_pilots_starships_1">
+          <End Role="people" Type="Self.people" Multiplicity="1" />
+          <End Role="starships_pilots" Type="Self.starships_pilots" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="people">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="starships_pilots">
+              <PropertyRef Name="people_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="s3t_veehicles_pilots_vehicles_0">
+          <End Role="vehicles" Type="Self.vehicles" Multiplicity="1" />
+          <End Role="vehicles_pilots" Type="Self.vehicles_pilots" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="vehicles">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="vehicles_pilots">
+              <PropertyRef Name="vehicle_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="s3t_veehicles_pilots_vehicles_1">
+          <End Role="people" Type="Self.people" Multiplicity="1" />
+          <End Role="vehicles_pilots" Type="Self.vehicles_pilots" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="people">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="vehicles_pilots">
+              <PropertyRef Name="people_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="PrototypeModelStoreContainer">
+          <EntitySet Name="films" EntityType="Self.films" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="films_characters" EntityType="Self.films_characters" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="films_planets" EntityType="Self.films_planets" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="films_species" EntityType="Self.films_species" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="films_starships" EntityType="Self.films_starships" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="films_vehicles" EntityType="Self.films_vehicles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="people" EntityType="Self.people" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="planets" EntityType="Self.planets" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="species" EntityType="Self.species" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="species_people" EntityType="Self.species_people" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="starships" EntityType="Self.starships" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="starships_pilots" EntityType="Self.starships_pilots" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="transports" EntityType="Self.transports" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="vehicles" EntityType="Self.vehicles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="vehicles_pilots" EntityType="Self.vehicles_pilots" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="s3t_characters_films_0" Association="Self.s3t_characters_films_0">
+            <End Role="films" EntitySet="films" />
+            <End Role="films_characters" EntitySet="films_characters" />
+          </AssociationSet>
+          <AssociationSet Name="s3t_characters_films_1" Association="Self.s3t_characters_films_1">
+            <End Role="people" EntitySet="people" />
+            <End Role="films_characters" EntitySet="films_characters" />
+          </AssociationSet>
+          <AssociationSet Name="s3t_films_planets_films_0" Association="Self.s3t_films_planets_films_0">
+            <End Role="films" EntitySet="films" />
+            <End Role="films_planets" EntitySet="films_planets" />
+          </AssociationSet>
+          <AssociationSet Name="s3t_films_planets_films_1" Association="Self.s3t_films_planets_films_1">
+            <End Role="planets" EntitySet="planets" />
+            <End Role="films_planets" EntitySet="films_planets" />
+          </AssociationSet>
+          <AssociationSet Name="s3t_films_species_films_0" Association="Self.s3t_films_species_films_0">
+            <End Role="films" EntitySet="films" />
+            <End Role="films_species" EntitySet="films_species" />
+          </AssociationSet>
+          <AssociationSet Name="s3t_films_species_films_1" Association="Self.s3t_films_species_films_1">
+            <End Role="species" EntitySet="species" />
+            <End Role="films_species" EntitySet="films_species" />
+          </AssociationSet>
+          <AssociationSet Name="s3t_films_starships_films_0" Association="Self.s3t_films_starships_films_0">
+            <End Role="films" EntitySet="films" />
+            <End Role="films_starships" EntitySet="films_starships" />
+          </AssociationSet>
+          <AssociationSet Name="s3t_films_starships_films_1" Association="Self.s3t_films_starships_films_1">
+            <End Role="starships" EntitySet="starships" />
+            <End Role="films_starships" EntitySet="films_starships" />
+          </AssociationSet>
+          <AssociationSet Name="s3t_films_vehicles_films_0" Association="Self.s3t_films_vehicles_films_0">
+            <End Role="films" EntitySet="films" />
+            <End Role="films_vehicles" EntitySet="films_vehicles" />
+          </AssociationSet>
+          <AssociationSet Name="s3t_films_vehicles_films_1" Association="Self.s3t_films_vehicles_films_1">
+            <End Role="vehicles" EntitySet="vehicles" />
+            <End Role="films_vehicles" EntitySet="films_vehicles" />
+          </AssociationSet>
+          <AssociationSet Name="s3t_species_people_species_0" Association="Self.s3t_species_people_species_0">
+            <End Role="species" EntitySet="species" />
+            <End Role="species_people" EntitySet="species_people" />
+          </AssociationSet>
+          <AssociationSet Name="s3t_species_people_species_1" Association="Self.s3t_species_people_species_1">
+            <End Role="people" EntitySet="people" />
+            <End Role="species_people" EntitySet="species_people" />
+          </AssociationSet>
+          <AssociationSet Name="s3t_starships_pilots_starships_0" Association="Self.s3t_starships_pilots_starships_0">
+            <End Role="starships" EntitySet="starships" />
+            <End Role="starships_pilots" EntitySet="starships_pilots" />
+          </AssociationSet>
+          <AssociationSet Name="s3t_starships_pilots_starships_1" Association="Self.s3t_starships_pilots_starships_1">
+            <End Role="people" EntitySet="people" />
+            <End Role="starships_pilots" EntitySet="starships_pilots" />
+          </AssociationSet>
+          <AssociationSet Name="s3t_veehicles_pilots_vehicles_0" Association="Self.s3t_veehicles_pilots_vehicles_0">
+            <End Role="vehicles" EntitySet="vehicles" />
+            <End Role="vehicles_pilots" EntitySet="vehicles_pilots" />
+          </AssociationSet>
+          <AssociationSet Name="s3t_veehicles_pilots_vehicles_1" Association="Self.s3t_veehicles_pilots_vehicles_1">
+            <End Role="people" EntitySet="people" />
+            <End Role="vehicles_pilots" EntitySet="vehicles_pilots" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PrototypeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="film">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="created" Type="DateTime" Precision="3" />
+          <Property Name="director" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="edited" Type="DateTime" Precision="3" />
+          <Property Name="episode_id" Type="Int32" />
+          <Property Name="opening_crawl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="producer" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="release_date" Type="DateTime" Precision="3" />
+          <Property Name="title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="people" Relationship="Self.films_characters" FromRole="films" ToRole="people" />
+          <NavigationProperty Name="planets" Relationship="Self.films_planets" FromRole="films" ToRole="planets" />
+          <NavigationProperty Name="species" Relationship="Self.films_species" FromRole="films" ToRole="species" />
+          <NavigationProperty Name="starships" Relationship="Self.films_starships" FromRole="films" ToRole="starships" />
+          <NavigationProperty Name="vehicles" Relationship="Self.films_vehicles" FromRole="films" ToRole="vehicles" />
+        </EntityType>
+        <EntityType Name="person">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="birth_year" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="created" Type="DateTime" Precision="3" />
+          <Property Name="edited" Type="DateTime" Precision="3" />
+          <Property Name="eye_color" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="gender" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="hair_color" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="height" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="homeworld" Type="Int32" />
+          <Property Name="mass" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="skin_color" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="films" Relationship="Self.films_characters" FromRole="people" ToRole="films" />
+          <NavigationProperty Name="species" Relationship="Self.species_people" FromRole="people" ToRole="species" />
+          <NavigationProperty Name="starships" Relationship="Self.starships_pilots" FromRole="people" ToRole="starships" />
+          <NavigationProperty Name="vehicles" Relationship="Self.vehicles_pilots" FromRole="people" ToRole="vehicles" />
+        </EntityType>
+        <EntityType Name="planet">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="climate" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="created" Type="DateTime" Precision="3" />
+          <Property Name="diameter" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="edited" Type="DateTime" Precision="3" />
+          <Property Name="gravity" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="orbital_period" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="population" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="rotation_period" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="surface_water" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="terrain" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="films" Relationship="Self.films_planets" FromRole="planets" ToRole="films" />
+        </EntityType>
+        <EntityType Name="species">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="average_height" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="average_lifespan" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="classification" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="created" Type="DateTime" Precision="3" />
+          <Property Name="designation" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="edited" Type="DateTime" Precision="3" />
+          <Property Name="eye_colors" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="hair_colors" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="homeworld" Type="Int32" />
+          <Property Name="language" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="skin_colors" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="films" Relationship="Self.films_species" FromRole="species" ToRole="films" />
+          <NavigationProperty Name="people" Relationship="Self.species_people" FromRole="species" ToRole="people" />
+        </EntityType>
+        <EntityType Name="starship">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="MGLT" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="hyperdrive_rating" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="starship_class" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="films" Relationship="Self.films_starships" FromRole="starships" ToRole="films" />
+          <NavigationProperty Name="people" Relationship="Self.starships_pilots" FromRole="starships" ToRole="people" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="transport">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="cargo_capacity" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="consumables" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="cost_in_credits" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="created" Type="DateTime" Precision="3" />
+          <Property Name="crew" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="edited" Type="DateTime" Precision="3" />
+          <Property Name="length" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="manufacturer" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="max_atmosphering_speed" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="model" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="passengers" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="vehicle">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="vehicle_class" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="films" Relationship="Self.films_vehicles" FromRole="vehicles" ToRole="films" />
+          <NavigationProperty Name="people" Relationship="Self.vehicles_pilots" FromRole="vehicles" ToRole="people" />
+        </EntityType>
+        <Association Name="films_characters">
+          <End Role="films" Type="Self.film" Multiplicity="*" />
+          <End Role="people" Type="Self.person" Multiplicity="*" />
+        </Association>
+        <Association Name="films_planets">
+          <End Role="films" Type="Self.film" Multiplicity="*" />
+          <End Role="planets" Type="Self.planet" Multiplicity="*" />
+        </Association>
+        <Association Name="films_species">
+          <End Role="films" Type="Self.film" Multiplicity="*" />
+          <End Role="species" Type="Self.species" Multiplicity="*" />
+        </Association>
+        <Association Name="films_starships">
+          <End Role="films" Type="Self.film" Multiplicity="*" />
+          <End Role="starships" Type="Self.starship" Multiplicity="*" />
+        </Association>
+        <Association Name="films_vehicles">
+          <End Role="films" Type="Self.film" Multiplicity="*" />
+          <End Role="vehicles" Type="Self.vehicle" Multiplicity="*" />
+        </Association>
+        <Association Name="species_people">
+          <End Role="species" Type="Self.species" Multiplicity="*" />
+          <End Role="people" Type="Self.person" Multiplicity="*" />
+        </Association>
+        <Association Name="starships_pilots">
+          <End Role="starships" Type="Self.starship" Multiplicity="*" />
+          <End Role="people" Type="Self.person" Multiplicity="*" />
+        </Association>
+        <Association Name="vehicles_pilots">
+          <End Role="vehicles" Type="Self.vehicle" Multiplicity="*" />
+          <End Role="people" Type="Self.person" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="PrototypeEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="films" EntityType="Self.film" />
+          <EntitySet Name="people" EntityType="Self.person" />
+          <EntitySet Name="planets" EntityType="Self.planet" />
+          <EntitySet Name="species" EntityType="Self.species" />
+          <EntitySet Name="starships" EntityType="Self.starship" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="transports" EntityType="Self.transport" />
+          <EntitySet Name="vehicles" EntityType="Self.vehicle" />
+          <AssociationSet Name="films_characters" Association="Self.films_characters">
+            <End Role="films" EntitySet="films" />
+            <End Role="people" EntitySet="people" />
+          </AssociationSet>
+          <AssociationSet Name="films_planets" Association="Self.films_planets">
+            <End Role="films" EntitySet="films" />
+            <End Role="planets" EntitySet="planets" />
+          </AssociationSet>
+          <AssociationSet Name="films_species" Association="Self.films_species">
+            <End Role="films" EntitySet="films" />
+            <End Role="species" EntitySet="species" />
+          </AssociationSet>
+          <AssociationSet Name="films_starships" Association="Self.films_starships">
+            <End Role="films" EntitySet="films" />
+            <End Role="starships" EntitySet="starships" />
+          </AssociationSet>
+          <AssociationSet Name="films_vehicles" Association="Self.films_vehicles">
+            <End Role="films" EntitySet="films" />
+            <End Role="vehicles" EntitySet="vehicles" />
+          </AssociationSet>
+          <AssociationSet Name="species_people" Association="Self.species_people">
+            <End Role="species" EntitySet="species" />
+            <End Role="people" EntitySet="people" />
+          </AssociationSet>
+          <AssociationSet Name="starships_pilots" Association="Self.starships_pilots">
+            <End Role="starships" EntitySet="starships" />
+            <End Role="people" EntitySet="people" />
+          </AssociationSet>
+          <AssociationSet Name="vehicles_pilots" Association="Self.vehicles_pilots">
+            <End Role="vehicles" EntitySet="vehicles" />
+            <End Role="people" EntitySet="people" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="PrototypeModelStoreContainer" CdmEntityContainer="PrototypeEntities">
+          <EntitySetMapping Name="films">
+            <EntityTypeMapping TypeName="PrototypeModel.film">
+              <MappingFragment StoreEntitySet="films">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="created" ColumnName="created" />
+                <ScalarProperty Name="director" ColumnName="director" />
+                <ScalarProperty Name="edited" ColumnName="edited" />
+                <ScalarProperty Name="episode_id" ColumnName="episode_id" />
+                <ScalarProperty Name="opening_crawl" ColumnName="opening_crawl" />
+                <ScalarProperty Name="producer" ColumnName="producer" />
+                <ScalarProperty Name="release_date" ColumnName="release_date" />
+                <ScalarProperty Name="title" ColumnName="title" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="people">
+            <EntityTypeMapping TypeName="PrototypeModel.person">
+              <MappingFragment StoreEntitySet="people">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="birth_year" ColumnName="birth_year" />
+                <ScalarProperty Name="created" ColumnName="created" />
+                <ScalarProperty Name="edited" ColumnName="edited" />
+                <ScalarProperty Name="eye_color" ColumnName="eye_color" />
+                <ScalarProperty Name="gender" ColumnName="gender" />
+                <ScalarProperty Name="hair_color" ColumnName="hair_color" />
+                <ScalarProperty Name="height" ColumnName="height" />
+                <ScalarProperty Name="homeworld" ColumnName="homeworld" />
+                <ScalarProperty Name="mass" ColumnName="mass" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="skin_color" ColumnName="skin_color" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="planets">
+            <EntityTypeMapping TypeName="PrototypeModel.planet">
+              <MappingFragment StoreEntitySet="planets">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="climate" ColumnName="climate" />
+                <ScalarProperty Name="created" ColumnName="created" />
+                <ScalarProperty Name="diameter" ColumnName="diameter" />
+                <ScalarProperty Name="edited" ColumnName="edited" />
+                <ScalarProperty Name="gravity" ColumnName="gravity" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="orbital_period" ColumnName="orbital_period" />
+                <ScalarProperty Name="population" ColumnName="population" />
+                <ScalarProperty Name="rotation_period" ColumnName="rotation_period" />
+                <ScalarProperty Name="surface_water" ColumnName="surface_water" />
+                <ScalarProperty Name="terrain" ColumnName="terrain" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="species">
+            <EntityTypeMapping TypeName="PrototypeModel.species">
+              <MappingFragment StoreEntitySet="species">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="average_height" ColumnName="average_height" />
+                <ScalarProperty Name="average_lifespan" ColumnName="average_lifespan" />
+                <ScalarProperty Name="classification" ColumnName="classification" />
+                <ScalarProperty Name="created" ColumnName="created" />
+                <ScalarProperty Name="designation" ColumnName="designation" />
+                <ScalarProperty Name="edited" ColumnName="edited" />
+                <ScalarProperty Name="eye_colors" ColumnName="eye_colors" />
+                <ScalarProperty Name="hair_colors" ColumnName="hair_colors" />
+                <ScalarProperty Name="homeworld" ColumnName="homeworld" />
+                <ScalarProperty Name="language" ColumnName="language" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="skin_colors" ColumnName="skin_colors" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="starships">
+            <EntityTypeMapping TypeName="PrototypeModel.starship">
+              <MappingFragment StoreEntitySet="starships">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="MGLT" ColumnName="MGLT" />
+                <ScalarProperty Name="hyperdrive_rating" ColumnName="hyperdrive_rating" />
+                <ScalarProperty Name="starship_class" ColumnName="starship_class" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="PrototypeModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="transports">
+            <EntityTypeMapping TypeName="PrototypeModel.transport">
+              <MappingFragment StoreEntitySet="transports">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="cargo_capacity" ColumnName="cargo_capacity" />
+                <ScalarProperty Name="consumables" ColumnName="consumables" />
+                <ScalarProperty Name="cost_in_credits" ColumnName="cost_in_credits" />
+                <ScalarProperty Name="created" ColumnName="created" />
+                <ScalarProperty Name="crew" ColumnName="crew" />
+                <ScalarProperty Name="edited" ColumnName="edited" />
+                <ScalarProperty Name="length" ColumnName="length" />
+                <ScalarProperty Name="manufacturer" ColumnName="manufacturer" />
+                <ScalarProperty Name="max_atmosphering_speed" ColumnName="max_atmosphering_speed" />
+                <ScalarProperty Name="model" ColumnName="model" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="passengers" ColumnName="passengers" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vehicles">
+            <EntityTypeMapping TypeName="PrototypeModel.vehicle">
+              <MappingFragment StoreEntitySet="vehicles">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="vehicle_class" ColumnName="vehicle_class" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="films_characters" TypeName="PrototypeModel.films_characters" StoreEntitySet="films_characters">
+            <EndProperty Name="films">
+              <ScalarProperty Name="id" ColumnName="film_id" />
+            </EndProperty>
+            <EndProperty Name="people">
+              <ScalarProperty Name="id" ColumnName="people_id" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="films_planets" TypeName="PrototypeModel.films_planets" StoreEntitySet="films_planets">
+            <EndProperty Name="films">
+              <ScalarProperty Name="id" ColumnName="film_id" />
+            </EndProperty>
+            <EndProperty Name="planets">
+              <ScalarProperty Name="id" ColumnName="planet_id" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="films_species" TypeName="PrototypeModel.films_species" StoreEntitySet="films_species">
+            <EndProperty Name="films">
+              <ScalarProperty Name="id" ColumnName="film_id" />
+            </EndProperty>
+            <EndProperty Name="species">
+              <ScalarProperty Name="id" ColumnName="species_id" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="films_starships" TypeName="PrototypeModel.films_starships" StoreEntitySet="films_starships">
+            <EndProperty Name="films">
+              <ScalarProperty Name="id" ColumnName="film_id" />
+            </EndProperty>
+            <EndProperty Name="starships">
+              <ScalarProperty Name="id" ColumnName="starship_id" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="films_vehicles" TypeName="PrototypeModel.films_vehicles" StoreEntitySet="films_vehicles">
+            <EndProperty Name="films">
+              <ScalarProperty Name="id" ColumnName="film_id" />
+            </EndProperty>
+            <EndProperty Name="vehicles">
+              <ScalarProperty Name="id" ColumnName="vehicle_id" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="species_people" TypeName="PrototypeModel.species_people" StoreEntitySet="species_people">
+            <EndProperty Name="species">
+              <ScalarProperty Name="id" ColumnName="species_id" />
+            </EndProperty>
+            <EndProperty Name="people">
+              <ScalarProperty Name="id" ColumnName="people_id" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="starships_pilots" TypeName="PrototypeModel.starships_pilots" StoreEntitySet="starships_pilots">
+            <EndProperty Name="starships">
+              <ScalarProperty Name="id" ColumnName="starship_id" />
+            </EndProperty>
+            <EndProperty Name="people">
+              <ScalarProperty Name="id" ColumnName="people_id" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="vehicles_pilots" TypeName="PrototypeModel.vehicles_pilots" StoreEntitySet="vehicles_pilots">
+            <EndProperty Name="vehicles">
+              <ScalarProperty Name="id" ColumnName="vehicle_id" />
+            </EndProperty>
+            <EndProperty Name="people">
+              <ScalarProperty Name="id" ColumnName="people_id" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

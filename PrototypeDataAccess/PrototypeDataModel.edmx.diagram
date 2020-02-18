@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="ea39701818ab4e4d90821d5d6d6faa88" Name="Diagram1">
+        <EntityTypeShape EntityType="PrototypeModel.film" Width="1.5" PointX="0.75" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PrototypeModel.person" Width="1.5" PointX="5.25" PointY="13.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PrototypeModel.planet" Width="1.5" PointX="3" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="PrototypeModel.species" Width="1.5" PointX="3" PointY="13.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PrototypeModel.starship" Width="1.5" PointX="3" PointY="18" IsExpanded="true" />
+        <EntityTypeShape EntityType="PrototypeModel.sysdiagram" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PrototypeModel.transport" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PrototypeModel.vehicle" Width="1.5" PointX="3" PointY="20.875" IsExpanded="true" />
+        <AssociationConnector Association="PrototypeModel.films_characters" ManuallyRouted="false" />
+        <AssociationConnector Association="PrototypeModel.films_planets" ManuallyRouted="false" />
+        <AssociationConnector Association="PrototypeModel.films_species" ManuallyRouted="false" />
+        <AssociationConnector Association="PrototypeModel.films_starships" ManuallyRouted="false" />
+        <AssociationConnector Association="PrototypeModel.films_vehicles" ManuallyRouted="false" />
+        <AssociationConnector Association="PrototypeModel.species_people" ManuallyRouted="false" />
+        <AssociationConnector Association="PrototypeModel.starships_pilots" ManuallyRouted="false" />
+        <AssociationConnector Association="PrototypeModel.vehicles_pilots" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
